@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The Game of Crag</title>
+
+    <style>
+      body {
+        font-size: 16px;
+      }
+
+      .diceRow {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        margin: 2em 0;
+      }
+
+      .diceRow span {
+        font-size: 3em !important;
+      }
+
+      .scoreCardTable {
+        width: 100%;
+      }
+
+      .scoreCardTable th:first-of-type {
+        text-align: left;
+      }
+
+      .scoreCardCell {
+        text-align: center;
+      }
+
+      .scoreCardCell:first-of-type {
+        text-align: left;
+      }
+
+      span[class^="die"] {
+        font-size: 28px;
+      }
+
+      .die1::before {
+        content: "\2680";
+      }
+
+      .die2::before {
+        content: "\2681";
+      }
+
+      .die3::before {
+        content: "\2682";
+      }
+
+      .die4::before {
+        content: "\2683";
+      }
+
+      .die5::before {
+        content: "\2684";
+      }
+
+      .die6::before {
+        content: "\2685";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Game of Crag</h1>
+
+    <p class="introduction">
+      Someone named Pascal Claisse made a wonderful one-html-page entry for the German game kniffel (a precursor to
+      Yahtzee) which he called <a href="/knfl.html">KNFL</a>. In researching that game on Wikipedia, I came across a
+      similar and even simpler game called <a href="https://en.wikipedia.org/wiki/Crag_(dice_game)">Crag</a>. I loved
+      the simplicity of the game, and the fact it used only 3 dice (I'm a sucker for minimalism). What sealed the deal
+      for me, though, is the fact that my brother's name is Craig (a gaelic-styled version of Crag). So, I present this
+      in his honor.
+    </p>
+
+    <div id="GameContainer">
+      <div id="GameField">
+        <section id="DiceRow" class="diceRow">
+          <div id="Die0"><span class="die1"></span></div>
+          <div id="Die1"><span class="die1"></span></div>
+          <div id="Die2"><span class="die1"></span></div>
+        </section>
+        <section id="PlayerStats"><span id="PlayerName">Player</span><span id="CurrentScore"></span></section>
+      </div>
+      <table id="GameScoreCard" class="scoreCardTable">
+        <thead>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Points</th>
+          <th>Score</th>
+        </thead>
+        <tbody>
+          <tr id="ScoreCardOnes">
+            <td class="scoreCardCell scoreCardCell--category">Ones</td>
+            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die1"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die1"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardTwos">
+            <td class="scoreCardCell scoreCardCell--category">Twos</td>
+            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die2"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die2"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardThrees">
+            <td class="scoreCardCell scoreCardCell--category">Threes</td>
+            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die3"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die3"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardFours">
+            <td class="scoreCardCell scoreCardCell--category">Fours</td>
+            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die4"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die4"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardFives">
+            <td class="scoreCardCell scoreCardCell--category">Fives</td>
+            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die5"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die5"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardSixes">
+            <td class="scoreCardCell scoreCardCell--category">Sixes</td>
+            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die6"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die6"></span>s</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="ActionButtons">
+        <button id="RollDiceButton">Roll Dice</button>
+        <button id="EndTurnButton">End Turn</button>
+      </div>
+    </div>
+  </body>
+</html>
