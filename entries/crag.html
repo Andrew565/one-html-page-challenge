@@ -139,5 +139,32 @@
         <button id="EndTurnButton">End Turn</button>
       </div>
     </div>
+
+    <script>
+      const Dice = [
+        { id: 0, value: 1, selected: false },
+        { id: 1, value: 1, selected: false },
+        { id: 2, value: 1, selected: false }
+      ];
+
+      const pickOf6 = () => {
+        return Math.floor(Math.random() * 6) + 1;
+      };
+
+      const RollDiceButton = document.getElementById("RollDiceButton");
+      RollDiceButton.addEventListener("click", () => {
+        Dice.forEach(die => {
+          if (!die.selected) die.value = pickOf6();
+        });
+        updateDiceDisplay();
+      });
+
+      const updateDiceDisplay = () => {
+        Dice.forEach(die => {
+          const dieEl = document.querySelector(`#Die${die.id} span`);
+          dieEl.classList.value = `die${die.value}`;
+        });
+      };
+    </script>
   </body>
 </html>
