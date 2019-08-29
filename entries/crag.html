@@ -132,6 +132,48 @@
             <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die6"></span>s</td>
             <td class="scoreCardCell scoreCardCell--score">--</td>
           </tr>
+          <tr id="ScoreCardOddStraight">
+            <td class="scoreCardCell scoreCardCell--category">Odd Straight</td>
+            <td class="scoreCardCell scoreCardCell--description"><span class="die1"></span>, <span class="die3"></span>, <span class="die5"></span></td>
+            <td class="scoreCardCell scoreCardCell--points">20</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardEvenStraight">
+            <td class="scoreCardCell scoreCardCell--category">Even Straight</td>
+            <td class="scoreCardCell scoreCardCell--description"><span class="die2"></span>, <span class="die4"></span>, <span class="die6"></span></td>
+            <td class="scoreCardCell scoreCardCell--points">20</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardLowStraight">
+            <td class="scoreCardCell scoreCardCell--category">Low Straight</td>
+            <td class="scoreCardCell scoreCardCell--description"><span class="die1"></span>, <span class="die2"></span>, <span class="die3"></span></td>
+            <td class="scoreCardCell scoreCardCell--points">20</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardHighStraight">
+            <td class="scoreCardCell scoreCardCell--category">High Straight</td>
+            <td class="scoreCardCell scoreCardCell--description"><span class="die4"></span>, <span class="die5"></span>, <span class="die6"></span></td>
+            <td class="scoreCardCell scoreCardCell--points">20</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardThreeOfAKind">
+            <td class="scoreCardCell scoreCardCell--category">Three of a Kind</td>
+            <td class="scoreCardCell scoreCardCell--description">Any three dice of the same value<br/>(3 <span class="die4"></span>s, 3 <span class="die2"></span>s, etc.)</td>
+            <td class="scoreCardCell scoreCardCell--points">25</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardThirteen">
+            <td class="scoreCardCell scoreCardCell--category">Thirteen</td>
+            <td class="scoreCardCell scoreCardCell--description"><span class="die2"></span>, <span class="die5"></span>, <span class="die6"></span><br/>or  <span class="die3"></span>, <span class="die4"></span>, <span class="die6"></span></td>
+            <td class="scoreCardCell scoreCardCell--points">26</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
+          <tr id="ScoreCardCrag">
+            <td class="scoreCardCell scoreCardCell--category">Crag</td>
+            <td class="scoreCardCell scoreCardCell--description"><span class="die1"></span>, <span class="die6"></span>, <span class="die6"></span>, or <span class="die3"></span>, <span class="die5"></span>, <span class="die5"></span>,<br/>or <span class="die5"></span>, <span class="die4"></span>, <span class="die4"></span></td>
+            <td class="scoreCardCell scoreCardCell--points">50</td>
+            <td class="scoreCardCell scoreCardCell--score">--</td>
+          </tr>
         </tbody>
       </table>
       <div id="ActionButtons">
@@ -146,6 +188,15 @@
         { id: 1, value: 1, selected: false },
         { id: 2, value: 1, selected: false }
       ];
+      
+      const SimpleCategoriesAndValues = [
+        {category: "Ones", value: 1},
+        {category: "Twos", value: 2},
+        {category: "Threes", value: 3},
+        {category: "Fours", value: 4},
+        {category: "Fives", value: 5},
+        {category: "Sixes", value: 6}
+      ];
 
       const pickOf6 = () => {
         return Math.floor(Math.random() * 6) + 1;
@@ -157,6 +208,7 @@
           if (!die.selected) die.value = pickOf6();
         });
         updateDiceDisplay();
+        updateScoreCard();
       });
 
       const updateDiceDisplay = () => {
@@ -165,6 +217,20 @@
           dieEl.classList.value = `die${die.value}`;
         });
       };
+      
+      const updateScoreCard = () => {
+        const updateSingle = ({category, value}) => {
+          const catDice = Dice.filter((die) => die.value === value);
+          if (catDice.length > 0) {
+            const cell = document.querySelector(`#ScoreCard${category} .scoreCardCell--score`);
+            cell.innerHTML = String(catDice.length * value);
+          }
+        }
+        
+        SimpleCategoriesAndValues.forEach(CV => updateSingle(CV));
+        
+        
+      }
     </script>
   </body>
 </html>
