@@ -88,7 +88,7 @@
         </section>
         <section id="PlayerStats"><span id="PlayerName">Player</span><span id="CurrentScore"></span></section>
       </div>
-      <table id="GameScoreCard" class="scoreCardTable">
+      <table id="GameScoreCard" class="scoreCard">
         <thead>
           <th>Category</th>
           <th>Description</th>
@@ -97,82 +97,82 @@
         </thead>
         <tbody>
           <tr id="ScoreCardOnes">
-            <td class="scoreCardCell scoreCardCell--category">Ones</td>
-            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die1"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die1"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Ones</td>
+            <td class="scoreCard__descriptionCell">0 or more <span class="die1"></span>s</td>
+            <td class="scoreCard__pointsCell">Sum of <span class="die1"></span>s</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardTwos">
-            <td class="scoreCardCell scoreCardCell--category">Twos</td>
-            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die2"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die2"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Twos</td>
+            <td class="scoreCard__descriptionCell">0 or more <span class="die2"></span>s</td>
+            <td class="scoreCard__pointsCell">Sum of <span class="die2"></span>s</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardThrees">
-            <td class="scoreCardCell scoreCardCell--category">Threes</td>
-            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die3"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die3"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Threes</td>
+            <td class="scoreCard__descriptionCell">0 or more <span class="die3"></span>s</td>
+            <td class="scoreCard__pointsCell">Sum of <span class="die3"></span>s</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardFours">
-            <td class="scoreCardCell scoreCardCell--category">Fours</td>
-            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die4"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die4"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Fours</td>
+            <td class="scoreCard__descriptionCell">0 or more <span class="die4"></span>s</td>
+            <td class="scoreCard__pointsCell">Sum of <span class="die4"></span>s</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardFives">
-            <td class="scoreCardCell scoreCardCell--category">Fives</td>
-            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die5"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die5"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Fives</td>
+            <td class="scoreCard__descriptionCell">0 or more <span class="die5"></span>s</td>
+            <td class="scoreCard__pointsCell">Sum of <span class="die5"></span>s</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardSixes">
-            <td class="scoreCardCell scoreCardCell--category">Sixes</td>
-            <td class="scoreCardCell scoreCardCell--description">0 or more <span class="die6"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--points">Sum of <span class="die6"></span>s</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Sixes</td>
+            <td class="scoreCard__descriptionCell">0 or more <span class="die6"></span>s</td>
+            <td class="scoreCard__pointsCell">Sum of <span class="die6"></span>s</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardOddStraight">
-            <td class="scoreCardCell scoreCardCell--category">Odd Straight</td>
-            <td class="scoreCardCell scoreCardCell--description"><span class="die1"></span>, <span class="die3"></span>, <span class="die5"></span></td>
-            <td class="scoreCardCell scoreCardCell--points">20</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Odd Straight</td>
+            <td class="scoreCard__descriptionCell"><span class="die1"></span>, <span class="die3"></span>, <span class="die5"></span></td>
+            <td class="scoreCard__pointsCell">20</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardEvenStraight">
-            <td class="scoreCardCell scoreCardCell--category">Even Straight</td>
-            <td class="scoreCardCell scoreCardCell--description"><span class="die2"></span>, <span class="die4"></span>, <span class="die6"></span></td>
-            <td class="scoreCardCell scoreCardCell--points">20</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Even Straight</td>
+            <td class="scoreCard__descriptionCell"><span class="die2"></span>, <span class="die4"></span>, <span class="die6"></span></td>
+            <td class="scoreCard__pointsCell">20</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardLowStraight">
-            <td class="scoreCardCell scoreCardCell--category">Low Straight</td>
-            <td class="scoreCardCell scoreCardCell--description"><span class="die1"></span>, <span class="die2"></span>, <span class="die3"></span></td>
-            <td class="scoreCardCell scoreCardCell--points">20</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Low Straight</td>
+            <td class="scoreCard__descriptionCell"><span class="die1"></span>, <span class="die2"></span>, <span class="die3"></span></td>
+            <td class="scoreCard__pointsCell">20</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardHighStraight">
-            <td class="scoreCardCell scoreCardCell--category">High Straight</td>
-            <td class="scoreCardCell scoreCardCell--description"><span class="die4"></span>, <span class="die5"></span>, <span class="die6"></span></td>
-            <td class="scoreCardCell scoreCardCell--points">20</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">High Straight</td>
+            <td class="scoreCard__descriptionCell"><span class="die4"></span>, <span class="die5"></span>, <span class="die6"></span></td>
+            <td class="scoreCard__pointsCell">20</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardThreeOfAKind">
-            <td class="scoreCardCell scoreCardCell--category">Three of a Kind</td>
-            <td class="scoreCardCell scoreCardCell--description">Any three dice of the same value<br/>(3 <span class="die4"></span>s, 3 <span class="die2"></span>s, etc.)</td>
-            <td class="scoreCardCell scoreCardCell--points">25</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Three of a Kind</td>
+            <td class="scoreCard__descriptionCell">Any three dice of the same value<br/>(3 <span class="die4"></span>s, 3 <span class="die2"></span>s, etc.)</td>
+            <td class="scoreCard__pointsCell">25</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardThirteen">
-            <td class="scoreCardCell scoreCardCell--category">Thirteen</td>
-            <td class="scoreCardCell scoreCardCell--description"><span class="die2"></span>, <span class="die5"></span>, <span class="die6"></span><br/>or  <span class="die3"></span>, <span class="die4"></span>, <span class="die6"></span></td>
-            <td class="scoreCardCell scoreCardCell--points">26</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Thirteen</td>
+            <td class="scoreCard__descriptionCell"><span class="die2"></span>, <span class="die5"></span>, <span class="die6"></span><br/>or  <span class="die3"></span>, <span class="die4"></span>, <span class="die6"></span></td>
+            <td class="scoreCard__pointsCell">26</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
           <tr id="ScoreCardCrag">
-            <td class="scoreCardCell scoreCardCell--category">Crag</td>
-            <td class="scoreCardCell scoreCardCell--description"><span class="die1"></span>, <span class="die6"></span>, <span class="die6"></span>, or <span class="die3"></span>, <span class="die5"></span>, <span class="die5"></span>,<br/>or <span class="die5"></span>, <span class="die4"></span>, <span class="die4"></span></td>
-            <td class="scoreCardCell scoreCardCell--points">50</td>
-            <td class="scoreCardCell scoreCardCell--score">--</td>
+            <td class="scoreCard__categoryCell">Crag</td>
+            <td class="scoreCard__descriptionCell"><span class="die1"></span>, <span class="die6"></span>, <span class="die6"></span>, or <span class="die3"></span>, <span class="die5"></span>, <span class="die5"></span>,<br/>or <span class="die5"></span>, <span class="die4"></span>, <span class="die4"></span></td>
+            <td class="scoreCard__pointsCell">50</td>
+            <td class="scoreCard__scoreCell">--</td>
           </tr>
         </tbody>
       </table>
@@ -183,29 +183,48 @@
     </div>
 
     <script>
+      const C = {
+        scoreCellClass: "scoreCard__scoreCell",
+        selectedScoreCellClass: "scoreCard__scoreCell--selected",
+        lockedScoreCellClass: "scoreCard__scoreCell--locked"
+      };
+    
       const Dice = [
-        { id: 0, value: 1, selected: false },
-        { id: 1, value: 1, selected: false },
-        { id: 2, value: 1, selected: false }
+        { id: 0, value: 1, selected: false, locked: false },
+        { id: 1, value: 1, selected: false, locked: false },
+        { id: 2, value: 1, selected: false, locked: false }
       ];
       
       const SimpleCategoriesAndValues = [
-        {category: "Ones", value: 1},
-        {category: "Twos", value: 2},
-        {category: "Threes", value: 3},
-        {category: "Fours", value: 4},
-        {category: "Fives", value: 5},
-        {category: "Sixes", value: 6}
+        {category: "Ones", value: 1, selected: false, locked: false, finalValue: 0},
+        {category: "Twos", value: 2, selected: false, locked: false, finalValue: 0},
+        {category: "Threes", value: 3, selected: false, locked: false, finalValue: 0},
+        {category: "Fours", value: 4, selected: false, locked: false, finalValue: 0},
+        {category: "Fives", value: 5, selected: false, locked: false, finalValue: 0},
+        {category: "Sixes", value: 6, selected: false, locked: false, finalValue: 0}
+      ];
+      
+      const ComplexCategories = [
+        {category: "OddStraight", needed: [[1, 3, 5]], value: 20},
+        {category: "EvenStraight", needed: [[2, 4, 6]], value: 20},
+        {category: "LowStraight", needed:[[1, 2, 3]], value: 20},
+        {category: "HighStraight", needed: [[4, 5, 6]], value: 20},
+        {category: "ThreeOfAKind", needed: [[1,1,1], [2,2,2], [3,3,3], [4,4,4], [5,5,5], [6,6,6]], value: 25},
+        {category: "Thirteen", needed: [[2,5,6], [3,4,6]], value: 26},
+        {category: "Crag", needed: [[1, 6, 6], [3, 5, 5], [4, 4, 5]], value: 50}
       ];
 
       const pickOf6 = () => {
         return Math.floor(Math.random() * 6) + 1;
       };
+      
+      const getById = (id) => document.getElementById(id);
+      const getByQuery = (q) => document.querySelector(q);
 
-      const RollDiceButton = document.getElementById("RollDiceButton");
+      const RollDiceButton = getById("RollDiceButton");
       RollDiceButton.addEventListener("click", () => {
         Dice.forEach(die => {
-          if (!die.selected) die.value = pickOf6();
+          if (!die.selected && !die.locked) die.value = pickOf6();
         });
         updateDiceDisplay();
         updateScoreCard();
@@ -213,24 +232,67 @@
 
       const updateDiceDisplay = () => {
         Dice.forEach(die => {
-          const dieEl = document.querySelector(`#Die${die.id} span`);
+          const dieEl = getByQuery(`#Die${die.id} span`);
           dieEl.classList.value = `die${die.value}`;
         });
       };
       
-      const updateScoreCard = () => {
-        const updateSingle = ({category, value}) => {
-          const catDice = Dice.filter((die) => die.value === value);
-          if (catDice.length > 0) {
-            const cell = document.querySelector(`#ScoreCard${category} .scoreCardCell--score`);
-            cell.innerHTML = String(catDice.length * value);
+      const updateCellScore = (category, value) => {
+        const cell = getByQuery(`#ScoreCard${category} .${C.scoreCellClass}`);
+        cell.innerHTML = String(value);
+      };
+      
+      const updateSimple = ({category, value}) => {
+        const catDice = Dice.filter((die) => die.value === value);
+        if (catDice.length > 0) {
+          updateCellScore(category, catDice.length * value);
+        }
+      };
+      
+      const updateComplex = ({category, needed, value}) => {
+        let matches = 0;
+        
+        for (const need in needed) {
+          for (const die in Dice) {
+            if (die.value === need) {
+              matches++;
+            }
           }
         }
         
-        SimpleCategoriesAndValues.forEach(CV => updateSingle(CV));
-        
-        
+        if (matches === 3) {
+          updateCellScore(die.category, value);
+        }
+      };
+      
+      const updateScoreCard = () => {
+        SimpleCategoriesAndValues.forEach(updateSimple);
+        ComplexCategories.forEach(updateComplex);
+      };
+      
+      const scores = document.querySelectorAll(`.${C.scoreCellClass}`);
+      for (let scoreCell of scores) {
+        scoreCell.addEventListener("click", (e) => {
+          if (scoreCell.classList.contains(C.selectedScoreCellClass)) {
+            scoreCell.classList.remove(C.selectedScoreCellClass);
+            return;
+          }
+          
+          // When click, 'select' but don't 'lock in' selected score
+          // Make sure to clear any other selections
+          const otherSelections = document.querySelectorAll(C.selectedScoreCellClass);
+          for (let el of otherSelections) {
+            el.classList.remove(C.selectedScoreCellClass);
+          }
+          
+          scoreCell.classList.add(C.selectedScoreCellClass);
+        });
       }
+      
+      const endTurnButton = document.getElementById("EndTurnButton");
+      endTurnButton.addEventListener("click", () => {
+        
+      });
     </script>
   </body>
 </html>
