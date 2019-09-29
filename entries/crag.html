@@ -65,6 +65,14 @@
       .die6::before {
         content: "\2685";
       }
+      
+      *[class$="--selected"] {
+        border: 1px solid red;
+      }
+      
+      *[class$="--locked"] {
+        border: 1px solid rebeccapurple;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +90,9 @@
     <div id="GameContainer">
       <div id="GameField">
         <section id="DiceRow" class="diceRow">
-          <div id="Die0"><span class="die1"></span></div>
-          <div id="Die1"><span class="die1"></span></div>
-          <div id="Die2"><span class="die1"></span></div>
+          <div id="Die0" class="die"><span class="die1"></span></div>
+          <div id="Die1" class="die"><span class="die1"></span></div>
+          <div id="Die2" class="die"><span class="die1"></span></div>
         </section>
         <section id="PlayerStats"><span id="PlayerName">Player</span><span id="CurrentScore"></span></section>
       </div>
@@ -184,15 +192,30 @@
 
     <script>
       const C = {
+        dieDivClass: "die",
+        electedDieDivClass: "die--selected",
         scoreCellClass: "scoreCard__scoreCell",
         selectedScoreCellClass: "scoreCard__scoreCell--selected",
         lockedScoreCellClass: "scoreCard__scoreCell--locked"
       };
+      
+      const Game = {
+        players: [],
+        rollTwo: false,
+        set updateRoll () {
+          this.rollTwo = !this.rollTwo;
+          if (this.rollTwo) {
+            RollDiceButton.setAttribute("disabled", true);
+          } else {
+            RollDiceButton.removeAttribute("disabled");
+          }
+        }
+      }
     
       const Dice = [
-        { id: 0, value: 1, selected: false, locked: false },
-        { id: 1, value: 1, selected: false, locked: false },
-        { id: 2, value: 1, selected: false, locked: false }
+        { id: 0, value: 1, selected: false },
+        { id: 1, value: 1, selected: false },
+        { id: 2, value: 1, selected: false }
       ];
       
       const SimpleCategoriesAndValues = [
@@ -220,6 +243,21 @@
       
       const getById = (id) => document.getElementById(id);
       const getByQuery = (q) => document.querySelector(q);
+      
+      HTMLElement.prototype.hasClass = (className) => this.classList.contains(className);
+      
+      const diceDivs = document.getElementsByClassName("die");
+      for (let dieDiv of diceDivs) {
+        dieDiv.addEventListener("click", () => {
+          dieDiv.classList.toggle("selected");
+          const id = dieDiv.id.replace('Die', '');
+          Dice[id].selected = !Dice[id].selected;
+        });
+      }
+      
+      const scoreCells = document.getElementsByClassName(C.scoreCellClass);
+      const selectedCells = document.getElementsByClassName(C.selectedScoreCellClass);
+      const lockedCells = document.getElementsByClassName(C.lockedScoreCellClass)
 
       const RollDiceButton = getById("RollDiceButton");
       RollDiceButton.addEventListener("click", () => {
@@ -228,6 +266,7 @@
         });
         updateDiceDisplay();
         updateScoreCard();
+        Game.updateRoll();
       });
 
       const updateDiceDisplay = () => {
@@ -270,29 +309,43 @@
         ComplexCategories.forEach(updateComplex);
       };
       
-      const scores = document.querySelectorAll(`.${C.scoreCellClass}`);
-      for (let scoreCell of scores) {
-        scoreCell.addEventListener("click", (e) => {
-          if (scoreCell.classList.contains(C.selectedScoreCellClass)) {
-            scoreCell.classList.remove(C.selectedScoreCellClass);
-            return;
-          }
+      for (let scoreCell of scoreCells) {
+        scoreCell.addEventListener("click", () => {
+          // Don't do anything if this cell is already locked
+          if (scoreCell.hasClass(C.lockedScoreCellClass)) return;
           
-          // When click, 'select' but don't 'lock in' selected score
-          // Make sure to clear any other selections
-          const otherSelections = document.querySelectorAll(C.selectedScoreCellClass);
-          for (let el of otherSelections) {
-            el.classList.remove(C.selectedScoreCellClass);
-          }
-          
-          scoreCell.classList.add(C.selectedScoreCellClass);
+          scoreCell.classList.toggle(C.selectedScoreCellClass);
         });
       }
       
-      const endTurnButton = document.getElementById("EndTurnButton");
+      const endTurnButton = getById("EndTurnButton");
       endTurnButton.addEventListener("click", () => {
+        // Check to make sure something valid was selected
+        const valid = validateSelection();
+        if (!valid) return;
         
+        // Add the points to the total score
+        
+        // Check to see if there are any more slots available (i.e. can the player take another turn, or is the game over?)
+        
+        // If they can take another turn, reset whatever needs resetting for the next turn
+        
+        // If the game is over, display a message (modal or alert) stating their final score and ask if they wish to play again
       });
+      
+      const validateSelection = () => {
+        if (selectedCells.length !== 1) {
+          // TODO: Display an error message - there can be only one 
+          return;
+        }
+        
+        if (selectedCells[0].classList.contains(C.lockedScoreCellClass)) {
+          // TODO: Display an error message - you cannot select a cell
+          return;
+        }
+        
+        
+      }
     </script>
   </body>
 </html>
